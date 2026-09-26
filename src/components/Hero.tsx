@@ -17,7 +17,8 @@ export function Hero() {
               New
             </span>
             <span>
-              The MAV AI Ventures website is <strong className="font-semibold text-gold">Now available in GitHub</strong>
+              The T.R.A.N.S.L.A.T.E.™ Framework: A Career Reinvention Guide is{' '}
+              <strong className="font-semibold text-gold">Now available in GitHub</strong>
             </span>
           </p>
           <Eyebrow>Humanity first. AI lifts.</Eyebrow>
