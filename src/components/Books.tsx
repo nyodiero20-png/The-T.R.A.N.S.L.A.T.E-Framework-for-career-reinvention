@@ -1,4 +1,4 @@
-import { ArrowUpRight, Award, Download } from 'lucide-react'
+import { ArrowUpRight, Award, Download, Eye } from 'lucide-react'
 import { BESTSELLER_ATTESTATION, BOOKS, type Book } from '../config'
 import { SectionHeading } from './ui'
 
@@ -87,14 +87,26 @@ export function Books() {
               </p>
             </div>
           </div>
-          <a
-            href={BESTSELLER_ATTESTATION.url}
-            download={BESTSELLER_ATTESTATION.fileName}
-            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-gold px-5 py-2.5 font-semibold text-black transition-colors hover:bg-gold-soft"
-          >
-            <Download className="size-4" aria-hidden="true" />
-            Attestation (PowerPoint)
-          </a>
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href={BESTSELLER_ATTESTATION.viewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-gold px-5 py-2.5 font-semibold text-black transition-colors hover:bg-gold-soft"
+            >
+              <Eye className="size-4" aria-hidden="true" />
+              View attestation
+              <span className="sr-only">(PDF, opens in a new tab)</span>
+            </a>
+            <a
+              href={BESTSELLER_ATTESTATION.downloadUrl}
+              download={BESTSELLER_ATTESTATION.fileName}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-gold/60 px-5 py-2.5 font-semibold text-gold transition-colors hover:bg-gold/10"
+            >
+              <Download className="size-4" aria-hidden="true" />
+              Download (PowerPoint)
+            </a>
+          </div>
         </div>
       </div>
     </section>

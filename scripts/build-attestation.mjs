@@ -113,3 +113,118 @@ s.addText(
 mkdirSync('public/downloads', { recursive: true })
 await pptx.writeFile({ fileName: 'public/downloads/amazon-bestseller-attestation.pptx' })
 console.log('wrote public/downloads/amazon-bestseller-attestation.pptx')
+
+// --- PDF version (viewable inline in any browser) ---
+import PDFDocument from 'pdfkit'
+import { createWriteStream } from 'node:fs'
+
+const P_TEAL = '#062629'
+const P_TEAL_MID = '#0F4A4F'
+const P_GOLD = '#E2B457'
+const P_CREAM = '#F3ECDD'
+const P_MIST = '#C9D6D3'
+
+function buildPdf() {
+  return new Promise((resolve, reject) => {
+    const doc = new PDFDocument({ size: 'letter', layout: 'landscape', margin: 54 })
+    const stream = createWriteStream('public/downloads/amazon-bestseller-attestation.pdf')
+    stream.on('finish', resolve)
+    stream.on('error', reject)
+    doc.pipe(stream)
+
+    const W = doc.page.width
+    const H = doc.page.height
+    const M = 54
+    const CW = W - M * 2
+
+    const paint = () => doc.rect(0, 0, W, H).fill(P_TEAL)
+    const pageHeading = (t) => {
+      doc.fillColor(P_GOLD).font('Times-Bold').fontSize(24).text(t, M, 48)
+      doc.moveTo(M, 84).lineTo(M + 60, 84).lineWidth(2).strokeColor(P_GOLD).stroke()
+    }
+
+    // Page 1 - title
+    paint()
+    doc.fillColor(P_CREAM).font('Times-Bold').fontSize(34).text('Amazon #1 Bestseller Attestation', M, 170, { width: CW })
+    doc.fillColor(P_GOLD).font('Times-Roman').fontSize(20).text('The T.R.A.N.S.L.A.T.E.\u2122 Advantage After Layoff', M, 224, { width: CW })
+    doc.fillColor(P_MIST).font('Helvetica').fontSize(12).text('Verified Amazon ranking evidence captured September 17, 2026', M, 262, { width: CW })
+    doc.fillColor(P_MIST).fontSize(10).text('Prepared by Fred Jones Law Firm LLC and Bestseller Overnight\u00AE   \u2022   A MAV AI Ventures project', M, H - 70, { width: CW })
+
+    // Page 2 - summary + table
+    doc.addPage(); paint(); pageHeading('Achievement Summary')
+    doc.fillColor(P_CREAM).font('Helvetica').fontSize(12).text(
+      'Amazon displayed the Kindle edition as a #1 Best Seller in two paid categories, a #1 Hot New Release in three categories, and #6 in Career Guides. The product page also displayed Amazon\u2019s #1 Best Seller badge.',
+      M, 100, { width: CW },
+    )
+    const tableRows = [
+      ['Achievement', 'Rank', 'Amazon category'],
+      ['Best Seller', '#1', '15 Minute Business and Money Short Reads'],
+      ['Best Seller', '#1', '15 Minute Self Help Short Reads'],
+      ['Best Seller', '#6', 'Career Guides'],
+      ['Hot New Release', '#1', 'Career Guides'],
+      ['Hot New Release', '#1', '15 Minute Self Help Short Reads'],
+      ['Hot New Release', '#1', '15 Minute Business and Money Short Reads'],
+    ]
+    const cols = [170, 90, CW - 260]
+    const x0 = [M, M + cols[0], M + cols[0] + cols[1]]
+    const rowH = 34
+    let y = 170
+    tableRows.forEach((row, i) => {
+      const isHead = i === 0
+      doc.rect(M, y, CW, rowH).fill(isHead ? P_GOLD : P_TEAL_MID)
+      row.forEach((cell, c) => {
+        doc.fillColor(isHead ? P_TEAL : P_CREAM).font(isHead ? 'Helvetica-Bold' : 'Helvetica').fontSize(11)
+          .text(cell, x0[c] + 8, y + 10, { width: cols[c] - 16 })
+      })
+      y += rowH
+    })
+
+    // Page 3 - what the evidence establishes
+    doc.addPage(); paint(); pageHeading('What the Evidence Establishes')
+    const bullets = [
+      'Amazon\u2019s category pages displayed the book in the numbered positions shown in this dossier.',
+      'The product page displayed a #1 Best Seller badge in 15 Minute Business and Money Short Reads.',
+      'The achievement record reflects the rankings visible at the time of capture. Amazon rankings update frequently and may later change.',
+    ]
+    doc.font('Helvetica').fontSize(14).fillColor(P_CREAM)
+    let by = 110
+    bullets.forEach((b) => {
+      doc.fillColor(P_GOLD).text('\u2022', M, by, { continued: false })
+      doc.fillColor(P_CREAM).text(b, M + 18, by, { width: CW - 18 })
+      by = doc.y + 12
+    })
+
+    // Page 4 - congratulations
+    doc.addPage(); paint(); pageHeading('Congratulations')
+    doc.fillColor(P_CREAM).font('Helvetica').fontSize(13).text(
+      'Congratulations on becoming an Amazon #1 bestselling author with The T.R.A.N.S.L.A.T.E.\u2122 Advantage After Layoff. The book reached #1 in two paid bestseller categories and #1 in three Hot New Release categories, and rose to #6 in Career Guides. These results show that the message connected with readers who need a practical path forward after career disruption.',
+      M, 110, { width: CW, lineGap: 4 },
+    )
+    doc.moveDown().fillColor(P_CREAM).text(
+      'This achievement gives documented proof that these ideas can compete, connect, and establish authority in the marketplace.',
+      { width: CW, lineGap: 4 },
+    )
+    doc.fillColor(P_GOLD).fontSize(11).text('Dr. Frederick D. Jones Esq.  \u2022  Fred Jones Law Firm LLC  \u2022  Bestseller Overnight\u00AE', M, H - 70, { width: CW })
+
+    // Page 5 - recommended authority assets
+    doc.addPage(); paint(); pageHeading('Recommended Authority Assets')
+    const assets = [
+      'Use the #1 Amazon Bestseller designation with the date and category context when precision matters.',
+      'Save the original screenshots and this dossier as the evidence record for media, speaking, and partnership opportunities.',
+      'Carry the achievement into the author bio, speaker introduction, press materials, and business development conversations.',
+      'Continue the ownership review for the title, framework name, course content, and licensing opportunities.',
+    ]
+    doc.font('Helvetica').fontSize(13)
+    let ay = 110
+    assets.forEach((a) => {
+      doc.fillColor(P_GOLD).text('\u2022', M, ay)
+      doc.fillColor(P_CREAM).text(a, M + 18, ay, { width: CW - 18 })
+      ay = doc.y + 12
+    })
+
+    doc.end()
+  })
+}
+
+await buildPdf()
+console.log('wrote public/downloads/amazon-bestseller-attestation.pdf')
