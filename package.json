@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "lucide-react": "^1.16.0",
+    "mammoth": "^1.12.3",
+    "pptxgenjs": "^4.0.1",
     "react": "^19",
     "react-dom": "^19"
   },

@@ -1,5 +1,5 @@
-import { ArrowUpRight } from 'lucide-react'
-import { BOOKS, type Book } from '../config'
+import { ArrowUpRight, Award, Download } from 'lucide-react'
+import { BESTSELLER_ATTESTATION, BOOKS, type Book } from '../config'
 import { SectionHeading } from './ui'
 
 const accentStyles: Record<Book['accent'], string> = {
@@ -70,6 +70,32 @@ export function Books() {
             </li>
           ))}
         </ul>
+
+        <div className="mt-14 flex flex-col gap-5 rounded-2xl border border-gold/40 bg-gold/10 p-6 sm:flex-row sm:items-center sm:justify-between md:p-8">
+          <div className="flex items-start gap-4">
+            <span
+              aria-hidden="true"
+              className="flex size-11 shrink-0 items-center justify-center rounded-full bg-gold text-black"
+            >
+              <Award className="size-5" />
+            </span>
+            <div>
+              <h3 className="font-serif text-xl font-semibold text-cream">Amazon #1 Bestseller</h3>
+              <p className="mt-1 max-w-xl text-sm leading-relaxed text-mist">
+                <em className="text-gold-soft">The T.R.A.N.S.L.A.T.E.™ Advantage After Layoff</em> reached #1 in two
+                paid categories and three Hot New Release categories. Download the verified attestation.
+              </p>
+            </div>
+          </div>
+          <a
+            href={BESTSELLER_ATTESTATION.url}
+            download={BESTSELLER_ATTESTATION.fileName}
+            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-gold px-5 py-2.5 font-semibold text-black transition-colors hover:bg-gold-soft"
+          >
+            <Download className="size-4" aria-hidden="true" />
+            Attestation (PowerPoint)
+          </a>
+        </div>
       </div>
     </section>
   )

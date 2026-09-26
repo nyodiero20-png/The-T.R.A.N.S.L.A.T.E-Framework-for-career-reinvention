@@ -21,13 +21,10 @@ export function Hero() {
               <strong className="font-semibold text-gold">Now available in GitHub</strong>
             </span>
           </p>
-          <Eyebrow>Humanity first. AI lifts.</Eyebrow>
-          <h1
-            id="hero-title"
-            className="mt-6 font-serif text-5xl font-semibold leading-[1.05] text-balance text-cream md:text-7xl"
-          >
-            Practical AI for people <em className="font-medium text-gold">and</em> the organizations they power.
+          <h1 id="hero-title" className="sr-only">
+            MAV AI Ventures
           </h1>
+          <Eyebrow>Humanity first. AI lifts.</Eyebrow>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-pretty text-mist">
             MAV AI Ventures offers AI consulting, learning, and career reinvention
             support so experienced professionals and mission-driven teams can use AI with clarity, confidence,

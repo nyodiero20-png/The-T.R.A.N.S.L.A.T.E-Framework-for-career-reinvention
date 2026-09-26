@@ -4,9 +4,8 @@ const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
 
 export const SUPPORT_EMAIL = 'support@mav-ai-ventures.com'
 
-// Paste your booking link here (e.g. a Calendly or Google Calendar URL).
-// While empty, "Book an AI consultation" opens a prepared email instead.
-export const CALENDAR_URL = ''
+// Booking calendar (GrowthHub) for "Book an AI consultation".
+export const CALENDAR_URL = 'https://api.growthhub365.com/widget/booking/MErwtkiRNTxdLS1kVolg'
 
 export const CONSULTATION_MAILTO = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(
   'AI consultation request',
@@ -45,6 +44,12 @@ export const BRAND_MEDIA = {
 export const LOGO = asset('images/mav-logo.png')
 export const ROADMAP_QR = asset('images/roadmap-qr.jpg')
 
+// Amazon #1 Bestseller attestation for The T.R.A.N.S.L.A.T.E.™ Advantage After Layoff.
+export const BESTSELLER_ATTESTATION = {
+  url: asset('downloads/amazon-bestseller-attestation.pptx'),
+  fileName: 'amazon-bestseller-attestation.pptx',
+}
+
 export type Book = {
   title: string
   subtitle?: string
@@ -64,6 +69,7 @@ export const BOOKS: Book[] = [
     description:
       'Your experience is not outdated, it is untranslated. A dignity-first guide to identifying transferable strengths, shaping your value, and using AI responsibly as a thinking partner.',
     url: 'https://www.amazon.com/dp/B0HK5768XL',
+    cover: asset('images/books/B0HK5768XL.jpg'),
     accent: 'teal',
   },
   {
@@ -73,6 +79,7 @@ export const BOOKS: Book[] = [
     description:
       'Based on a true story, a young girl in a Kenyan village discovers coding and uses technology to preserve her community’s stories and spark change.',
     url: 'https://www.amazon.com/dp/B0FVTFFM3S',
+    cover: asset('images/books/B0FVTFFM3S.jpg'),
     accent: 'ember',
   },
   {
@@ -82,6 +89,7 @@ export const BOOKS: Book[] = [
     description:
       'An inspiring guide to reframing setbacks as springboards, pivoting into tech-driven paths with AI, and building resilience and future-ready skills.',
     url: 'https://www.amazon.com/dp/B0FRWSFF2T',
+    cover: asset('images/books/B0FRWSFF2T.jpg'),
     accent: 'gold',
   },
 ]
