@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, GitBranch } from 'lucide-react'
 import { CALENDAR_URL, CONSULTATION_URL, LINKS, LOGO } from '../config'
 import { ButtonLink, Eyebrow, YoutubeIcon } from './ui'
 
@@ -11,6 +11,15 @@ export function Hero() {
       />
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 md:py-28 lg:grid-cols-[1.35fr_1fr]">
         <div>
+          <p className="mb-6 inline-flex flex-wrap items-center gap-2 rounded-full border border-gold/40 bg-gold/10 py-1.5 pl-1.5 pr-4 text-sm text-cream">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-gold px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-black">
+              <GitBranch className="size-3.5" aria-hidden="true" />
+              New
+            </span>
+            <span>
+              The MAV AI Ventures website is <strong className="font-semibold text-gold">Now available in GitHub</strong>
+            </span>
+          </p>
           <Eyebrow>Humanity first. AI lifts.</Eyebrow>
           <h1
             id="hero-title"
