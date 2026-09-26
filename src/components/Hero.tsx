@@ -19,7 +19,7 @@ export function Hero() {
             Practical AI for people <em className="font-medium text-gold">and</em> the organizations they power.
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-pretty text-mist">
-            MAV AI Ventures, founded by Silper Pesa, offers AI consulting, learning, and career reinvention
+            MAV AI Ventures offers AI consulting, learning, and career reinvention
             support so experienced professionals and mission-driven teams can use AI with clarity, confidence,
             and care.
           </p>

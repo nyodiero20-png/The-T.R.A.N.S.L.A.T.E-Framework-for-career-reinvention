@@ -53,17 +53,17 @@ export function BrandMedia() {
         </div>
 
         <div>
-          <Eyebrow>Meet the founder</Eyebrow>
+          <Eyebrow>A MAV AI Ventures project</Eyebrow>
           <h2 id="brand-title" className="mt-4 font-serif text-4xl font-semibold leading-tight text-balance md:text-5xl">
             Rebuild after job loss. <span className="italic text-gold">Confidently</span> create your next chapter.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-pretty text-mist">
-            Silper Pesa built T.R.A.N.S.L.A.T.E.™ Career Reinvention to help experienced professionals navigate
-            change with dignity. The approach blends human coaching wisdom with responsible AI, so your lived
+            T.R.A.N.S.L.A.T.E.™ Career Reinvention is a project of MAV AI Ventures, built to help experienced
+            professionals navigate change with dignity. The approach blends human coaching wisdom with responsible AI, so your lived
             experience, cultural context, and judgment stay at the center of every decision.
           </p>
           <p className="mt-4 leading-relaxed text-mist">
-            Through MAV AI Ventures, that same human-first philosophy extends to the organizations and
+            Across MAV AI Ventures, that same human-first philosophy extends to the organizations and
             communities adopting AI for the first time.
           </p>
         </div>

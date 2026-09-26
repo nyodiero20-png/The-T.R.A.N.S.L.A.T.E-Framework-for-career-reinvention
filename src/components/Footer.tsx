@@ -12,7 +12,7 @@ export function Footer() {
             </span>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-mist">
-            Humanity first. AI lifts. AI consulting, learning, and career reinvention founded by Silper Pesa.
+            Humanity first. AI lifts. AI consulting, learning, and career reinvention, including the T.R.A.N.S.L.A.T.E.™ Career Reinvention project.
           </p>
         </div>
 
@@ -43,7 +43,7 @@ export function Footer() {
         </nav>
       </div>
       <p className="border-t border-line py-6 text-center text-xs text-mist/70">
-        {`© ${new Date().getFullYear()} MAV AI Ventures. T.R.A.N.S.L.A.T.E.™ is a trademark of Silper Pesa.`}
+        {`© ${new Date().getFullYear()} MAV AI Ventures. T.R.A.N.S.L.A.T.E.™ Career Reinvention is a project of MAV AI Ventures.`}
       </p>
     </footer>
   )

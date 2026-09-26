@@ -26,7 +26,7 @@ function BookCover({ book }: { book: Book }) {
       aria-hidden="true"
       className={`flex aspect-[2/3] w-full flex-col justify-between rounded-lg border bg-gradient-to-br p-6 shadow-xl shadow-black/40 ${accentStyles[book.accent]}`}
     >
-      <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-soft/80">Silper Pesa</span>
+      <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-gold-soft/80">MAV AI Ventures</span>
       <div>
         <p className="font-serif text-2xl font-semibold leading-tight text-cream">{book.title}</p>
         {book.subtitle && <p className="mt-2 text-xs leading-snug text-cream/70">{book.subtitle}</p>}
@@ -42,7 +42,7 @@ export function Books() {
       <div className="mx-auto max-w-6xl px-5 py-20 md:py-28">
         <SectionHeading
           id="books-title"
-          eyebrow="Books by Silper Pesa"
+          eyebrow="Books from MAV AI Ventures"
           title="Stories and roadmaps for every stage of change."
           intro="From career reinvention to inspiring the next generation of young coders."
         />

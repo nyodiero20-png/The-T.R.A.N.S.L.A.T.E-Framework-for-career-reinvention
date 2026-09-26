@@ -11,7 +11,7 @@ export const CALENDAR_URL = ''
 export const CONSULTATION_MAILTO = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(
   'AI consultation request',
 )}&body=${encodeURIComponent(
-  'Hello Silper,\n\nI would like to request an AI consultation with MAV AI Ventures.\n\nName:\nOrganization (if any):\nWhat I would like support with:\n\nThank you!',
+  'Hello MAV AI Ventures team,\n\nI would like to request an AI consultation with MAV AI Ventures.\n\nName:\nOrganization (if any):\nWhat I would like support with:\n\nThank you!',
 )}`
 
 export const CONSULTATION_URL = CALENDAR_URL || CONSULTATION_MAILTO
@@ -26,7 +26,7 @@ export const LINKS = {
 
 export const FRAMEWORK_VIDEO = {
   id: 'n6b_TRkrUfQ',
-  title: 'Introduction to The T.R.A.N.S.L.A.T.E.™ Advantage After Layoff framework by Silper Pesa',
+  title: 'Introduction to The T.R.A.N.S.L.A.T.E.™ Advantage After Layoff framework, a MAV AI Ventures project',
   watchUrl: 'https://www.youtube.com/watch?v=n6b_TRkrUfQ',
 }
 
@@ -36,7 +36,7 @@ export const FRAMEWORK_VIDEO = {
 export const BRAND_MEDIA = {
   image: asset('images/career-reinvention-brand.jpg'),
   imageAlt:
-    'The T.R.A.N.S.L.A.T.E.™ Career Reinvention brand image: Silper Pesa smiling, wearing a colorful beaded necklace, against a turquoise and gold background.',
+    'The T.R.A.N.S.L.A.T.E.™ Career Reinvention brand image, a MAV AI Ventures project: a smiling woman wearing a colorful beaded necklace, against a turquoise and gold background.',
   videoSrc: '',
   youtubeId: '',
   videoTitle: 'MAV AI Ventures brand video',
