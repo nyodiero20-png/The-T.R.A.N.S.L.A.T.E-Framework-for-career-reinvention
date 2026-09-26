@@ -46,11 +46,8 @@ export const ROADMAP_QR = asset('images/roadmap-qr.jpg')
 
 // Amazon #1 Bestseller attestation for The T.R.A.N.S.L.A.T.E.™ Advantage After Layoff.
 export const BESTSELLER_ATTESTATION = {
-  // PDF opens/views inline in any browser.
+  // PDF opens/views inline in any browser (view only).
   viewUrl: asset('downloads/amazon-bestseller-attestation.pdf'),
-  // PowerPoint download for editing / offline use.
-  downloadUrl: asset('downloads/amazon-bestseller-attestation.pptx'),
-  fileName: 'amazon-bestseller-attestation.pptx',
 }
 
 export type Book = {
